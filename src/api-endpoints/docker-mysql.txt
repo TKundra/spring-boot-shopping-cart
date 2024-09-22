@@ -1,0 +1,5 @@
+// Create a container
+docker run -p 3306:3306 -v mysql-volume:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=root --name mysql -d mysql:latest
+
+// Run mysql using terminal
+docker exec -it 70ed6b129ee1 mysql -u root -p

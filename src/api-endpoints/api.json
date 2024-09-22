@@ -1,0 +1,112 @@
+{
+  "BASE_URL": "http://localhost:9193/api/v1",
+  "products": {
+    "path": "/products",
+    "sub-paths": [
+      {
+        "description": "get all products",
+        "path": "/all",
+        "type": "GET"
+      },
+      {
+        "description": "add a product",
+        "path": "/add",
+        "type": "POST",
+        "body": {
+          "name": "TV",
+          "brand": "Apple",
+          "price": "400",
+          "inventory": "20",
+          "description": "Apple smart electronics",
+          "category": "Electronics"
+        }
+      },
+      {
+        "description": "get products by brand",
+        "path": "/product/by-brand?brand=apple",
+        "type": "GET"
+      },
+      {
+        "description": "get products by category",
+        "path": "/product/{category}/all/products",
+        "type": "GET"
+      }
+    ]
+  },
+  "images": {
+    "path": "/images",
+    "sub-paths": [
+      {
+        "description": "upload images for product",
+        "path": "/upload?productId=3",
+        "type": "POST",
+        "body": "In postman - Go to Body section - Select form-data - key: files, value: choose a file from local"
+      },
+      {
+        "description": "download image by id",
+        "path": "/image/download/3",
+        "type": "GET"
+      }
+    ]
+  },
+  "cart-items": {
+    "path": "/cartItems",
+    "sub-paths": [
+      {
+        "description": "add a cart item",
+        "path": "/item/add?cartId=1&productId=2&quantity=3",
+        "type": "POST"
+      },
+      {
+        "description": "update cart item",
+        "path": "/cart/{cartId}/item/{itemId}/update?quantity=6",
+        "type": "PUT"
+      },
+      {
+        "description": "remove cart item",
+        "path": "/cart/{cartId}/item/{itemId}/remove",
+        "type": "DELETE"
+      }
+    ]
+  },
+  "cart": {
+    "path": "/carts",
+    "sub-paths": [
+      {
+        "description": "get my cart",
+        "path": "/{cartId}/my-cart",
+        "type": "GET"
+      },
+      {
+        "description": "clear my cart",
+        "path": "/{cartId}/clear",
+        "type": "DELETE"
+      },
+      {
+        "description": "get total amount",
+        "path": "/{cartId}/cart/total-price",
+        "type": "GET"
+      }
+    ]
+  },
+  "user": {
+    "path": "/users",
+    "sub-paths": [
+      {
+        "description": "get a user",
+        "path": "/{userId}/user",
+        "type": "GET"
+      }
+    ]
+  },
+  "order": {
+    "path": "/orders",
+    "sub-paths": [
+      {
+        "description": "place an order",
+        "path": "/order?userId=1",
+        "type": "POST"
+      }
+    ]
+  }
+}
